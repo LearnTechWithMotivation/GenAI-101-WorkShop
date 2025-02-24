@@ -1,0 +1,124 @@
+<!-- https://user-6d59bc8a-cdd1-402b-8e11-26e8ec6f5bfa-rtkuajd6wq-uk.a.run.app/?p=ee3540a6ba -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENAI-101 Workshop</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .matrix-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .matrix-background::before {
+            content: '01010101010101010101010101010101010101010101010101010101';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 20px);
+            animation: matrix 10s linear infinite;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #1f4068;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #162447;
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            font-size: 18px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes matrix {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-background"></div>
+    <div class="content">
+        <h1>GENAI-101 Workshop</h1>
+        <button id="funFactButton">Click for Random Fun</button>
+        <div id="funFactDisplay" class="fact-display"></div>
+    </div>
+    <script>
+        const funFacts = [
+            "First Computer Bug: The term 'bug' in software comes from an actual moth found in a computer in 1947.",
+            "Hello, World!: The first program many learn to write is 'Hello, World!' It was popularized by the book 'The C Programming Language' by Brian Kernighan and Dennis Ritchie.",
+            "Email is Older Than the Web: Email was invented in 1971, while the World Wide Web was introduced in 1991.",
+            "First Programmer: Ada Lovelace, an English mathematician, is considered the first computer programmer for her work on Charles Babbage's early mechanical general-purpose computer, the Analytical Engine.",
+            "QWERTY Keyboard: The QWERTY keyboard layout was designed to prevent jamming in early typewriters by spacing out commonly used letter pairings.",
+            "First Video Game: The first video game, 'Tennis for Two,' was created in 1958 by physicist William Higinbotham.",
+            "The First Computer Virus: The first computer virus, 'Creeper,' was detected on ARPANET, the predecessor of the internet, in the early 1970s.",
+            "The First Domain Name: The first domain name ever registered was Symbolics.com on March 15, 1985.",
+            "Google's First Storage: Google’s first storage was made from LEGO bricks to house 10 4GB hard drives.",
+            "The @ Symbol: The @ symbol was chosen for email addresses by Ray Tomlinson in 1971 because it was rarely used and didn't appear in names.",
+            "The First Webcam: The first webcam was used at the University of Cambridge to monitor a coffee pot, ensuring it was never empty.",
+            "Open Source: The term 'open source' was coined in 1998, but the concept dates back to the early days of computing.",
+            "The First Computer Mouse: The first computer mouse was made of wood and was invented by Douglas Engelbart in 1964.",
+            "Y2K Bug: The Y2K bug was a computer flaw that was expected to cause problems when the date changed from December 31, 1999, to January 1, 2000.",
+            "First 1GB Hard Drive: The first 1GB hard drive was announced by IBM in 1980 and weighed over 500 pounds.",
+            "The First Smartphone: IBM's Simon Personal Communicator, released in 1994, is considered the first smartphone.",
+            "CAPTCHA: CAPTCHA stands for 'Completely Automated Public Turing test to tell Computers and Humans Apart.'",
+            "The First Website: The first website, created by Tim Berners-Lee, was about the World Wide Web project itself and went live on August 6, 1991.",
+            "Emoji Origin: Emojis were first created in 1999 by Shigetaka Kurita in Japan.",
+            "The First Computer Game: 'Spacewar!' is considered one of the first digital computer games, developed in 1962 by Steve Russell.",
+            "The First Search Engine: The first search engine was called 'Archie,' created in 1990 by Alan Emtage, a student at McGill University.",
+            "The First Tweet: The first tweet was sent by Jack Dorsey on March 21, 2006, and read, 'just setting up my twttr.'",
+            "The First YouTube Video: The first YouTube video was uploaded on April 23, 2005, by co-founder Jawed Karim, titled 'Me at the zoo.'",
+            "The First Computer Programmer's Day: Programmer's Day is celebrated on the 256th day of the year, which is September 13th or 12th in leap years, because 256 is the number of distinct values that can be represented with an eight-bit byte."
+        ];
+
+        document.getElementById('funFactButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            const funFactDisplay = document.getElementById('funFactDisplay');
+            funFactDisplay.style.opacity = 0;
+            setTimeout(() => {
+                funFactDisplay.textContent = funFacts[randomIndex];
+                funFactDisplay.style.opacity = 1;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
